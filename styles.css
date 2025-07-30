@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Noto Emoji Regular";
+  src: url('assets/NotoColorEmoji.ttf')  format('truetype');
+}
+
 html {
     font-family: sans-serif;
   }
@@ -33,3 +38,4 @@ html {
   caption {
     padding: 10px;
   }
+
