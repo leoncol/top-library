@@ -27,13 +27,16 @@ function Book(title, author, pages, read){ // This is the constructor for the bo
     } else {
         this.read = "not read yet"
     }
-    this.alreadyRead = function(){
-        this.read = "already read"
-        return this.read;
-    }
+
 }
 
 
+Book.prototype.alreadyRead = function() {
+        
+        this.read = "already read"
+        return this.read;
+    
+}
 
 function retrieveBookStatus(){
     if (bookStatusInput.value == "true"){
