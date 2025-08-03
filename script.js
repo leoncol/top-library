@@ -33,7 +33,11 @@ function Book(title, author, pages, read){ // This is the constructor for the bo
 
 Book.prototype.alreadyRead = function() {
         
-        this.read = "already read"
+        if (this.read == "already read"){
+            this.read = "not read yet"
+        } else if (this.read == "not read yet"){
+            this.read = "already read"
+        }
         return this.read;
     
 }
