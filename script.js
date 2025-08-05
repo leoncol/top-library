@@ -1,7 +1,7 @@
 const myLibrary = []; // Empty array to save the books to.
 
 const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("dialog + #open-button");
+const showButton = document.querySelector("dialog + .center-button-div > #open-button");
 const closeButton = document.querySelector("dialog #close-button");
 const bookTitleInput = document.querySelector("#book-title");
 
@@ -86,14 +86,17 @@ function displayAndDelete(book){ // This loops through the array and displays th
         displayBook.appendChild(statusInfo);
         const deleteBook = document.createElement("td");
         displayBook.appendChild(deleteBook);
+        const wrapButtons = document.createElement("div");
+        wrapButtons.setAttribute("class", "wrap-buttons");
+        deleteBook.appendChild(wrapButtons);
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
-        deleteBook.appendChild(deleteButton);
+        wrapButtons.appendChild(deleteButton);
         deleteButton.setAttribute("data-id", book.id);
         const toggleStatusButton = document.createElement("button");
         toggleStatusButton.textContent = "Read";
         toggleStatusButton.setAttribute("data-id", book.id);
-        deleteBook.appendChild(toggleStatusButton);
+        wrapButtons.appendChild(toggleStatusButton);
 
 
 
