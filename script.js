@@ -17,30 +17,38 @@ const table = document.querySelector("table");
 let bookStatus = true;
 
 
-function Book(title, author, pages, read){ // This is the constructor for the books.
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    if (read == true){
-        this.read = "already read"
-    } else {
-        this.read = "not read yet"
+class Book {
+    constructor(title, author, pages, read){ // This is the constructor for the books.
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    isRead(){
+        if (this.read == true){
+            this.read = "already read"
+        } else {
+            this.read = "not read yet"
+        }
     }
 
 }
 
 
-Book.prototype.alreadyRead = function() {
-        
+class CreatedBook extends Book {
+    alreadyRead(){
         if (this.read == "already read"){
             this.read = "not read yet"
         } else if (this.read == "not read yet"){
             this.read = "already read"
         }
         return this.read;
-    
+    }
 }
+
+        
 
 function retrieveBookStatus(){
     if (bookStatusInput.value == "true"){
@@ -59,7 +67,8 @@ const bookAuthor = bookAuthorInput.value;
 const bookPages = bookPagesInput.value;
 
 retrieveBookStatus();
-  let newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
+  let newBook = new CreatedBook(bookTitle, bookAuthor, bookPages, bookStatus);
+  newBook.isRead();
   myLibrary.push(newBook);
   displayAndDelete(newBook);
 }
