@@ -160,16 +160,52 @@ table.addEventListener("click", (event) => {
    
     });
 
-
+    const title = document.getElementById("book-title");
+    const author = document.getElementById("book-author");
+    const pages = document.getElementById("book-pages");
+    title.setCustomValidity("Enter a title!");
+    author.setCustomValidity("Enter an author!");
+    pages.setCustomValidity("Enter a number of pages!");
+    
+    
+        title.addEventListener("input", (event) => {
+            if (title.validity.valueMissing){
+                title.setCustomValidity("Enter a title!");
+            } else {
+                title.setCustomValidity("");
+            };
+        })
+    
+        author.addEventListener("input", (event) => {
+            if (author.validity.valueMissing){
+                author.setCustomValidity("Enter an author!");
+            } else {
+                author.setCustomValidity("");
+            }
+        });
+    
+        pages.addEventListener("input", (event) => {
+            if (pages.validity.valueMissing){
+                pages.setCustomValidity("Enter a number of pages!");
+            } else {
+                pages.setCustomValidity("");
+            }
+        });
+        
+        
    
     enterBookForm.addEventListener("submit", function (event){
         event.preventDefault();
+        addBookToLibrary();
+        dialog.close();
+        
+        
     });
     
-    submitButton.addEventListener("click", () => {
+    /* submitButton.addEventListener("click", () => {
         addBookToLibrary();
       
-    });
+    }); */
     
     
     // "Show the dialog" button opens the dialog modally
@@ -181,5 +217,14 @@ table.addEventListener("click", (event) => {
     closeButton.addEventListener("click", () => {
       dialog.close();
     });
+    
+
+    
+   
+        
+        
+       
+    
+        
     
     
