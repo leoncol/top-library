@@ -1,0 +1,19 @@
+{
+  "name": "top-library",
+  "version": "1.0.0",
+  "description": "library project for the odin project",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leoncol/top-library.git"
+  },
+  "author": "Camilo Leon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leoncol/top-library/issues"
+  },
+  "homepage": "https://github.com/leoncol/top-library#readme"
+}
